@@ -26,13 +26,15 @@ router.post('/', async (req, res) => {
   fs.writeFileSync(codePath, code);
 
   const imageName = `${language}-runner`;
+
   const buildCmd = `docker build -t ${imageName} ${folder}`;
- 
-  
+
+
   const runCmd = `docker run --rm --cpus=".5" --memory="128m" ${imageName}`;
 
   // Build the Docker image
   exec(buildCmd, (buildErr, buildStdout, buildStderr) => {
+    console.log("Runnning");
     if (buildErr) {
       console.error('Build failed:', buildStderr);
       return res.status(500).json({ error: 'Build failed' });

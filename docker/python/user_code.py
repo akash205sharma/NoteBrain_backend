@@ -1,6 +1,8 @@
-// Include the cmath library
-#include <cmath>
+a = 7
+b = 3
 
-cout << sqrt(64);
-cout << round(2.6);
-cout << log(2);
+
+if a > b:
+    print(a)
+else:
+    print(b)
